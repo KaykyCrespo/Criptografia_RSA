@@ -1702,6 +1702,43 @@ body :is(h1, h2, .eyebrow, .step-number) {
     font-weight: 700;
 }
 
+.tls-progress {
+    margin: 0;
+    color: var(--teal-dark);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.tls-next {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    background: #fff;
+    color: var(--teal-dark);
+    cursor: pointer;
+    font: 600 12px 'DM Sans', sans-serif;
+}
+
+.tls-next[hidden] {
+    display: none;
+}
+
+.tls-next:hover:not(:disabled) {
+    border-color: var(--teal);
+    background: #e8f4f0;
+}
+
+.tls-next:disabled {
+    background: #e8f4f0;
+    color: var(--teal-dark);
+    cursor: default;
+}
+
 .title,
 .title-second {
     margin: 0;

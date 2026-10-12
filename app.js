@@ -78,6 +78,28 @@ document.querySelectorAll(".workflow-tab").forEach(function(tab) {
     });
 });
 
+function avancarTls(workflow) {
+    var steps = document.querySelectorAll("#tlsSteps" + (workflow === "encrypt" ? "Encrypt" : "Decrypt") + " li");
+    var progress = document.querySelector("#tlsProgress" + (workflow === "encrypt" ? "Encrypt" : "Decrypt"));
+    var nextButton = document.querySelector("#tlsNext" + (workflow === "encrypt" ? "Encrypt" : "Decrypt"));
+    var current = Number(nextButton.dataset.current || "0");
+
+    if (current >= steps.length - 1) {
+        return;
+    }
+
+    steps[current].hidden = true;
+    current += 1;
+    steps[current].hidden = false;
+    nextButton.dataset.current = String(current);
+    progress.textContent = "Etapa " + (current + 1) + " de " + steps.length;
+
+    if (current === steps.length - 1) {
+        nextButton.disabled = true;
+        nextButton.innerHTML = 'Handshake finalizado <i class="bi bi-check2" aria-hidden="true"></i>';
+    }
+}
+
 
 function mostrarSenhaPrimary(){
     var inputPassPrimary = document.getElementById('msgCriptografada-primary')

@@ -412,13 +412,24 @@ def modInverse(a, m):
 
 def simular_tls(event):
     steps = build_tls_handshake_simulation()
-    for target_id in ("#tlsStepsEncrypt", "#tlsStepsDecrypt"):
-        target = document.querySelector(target_id)
-        target.innerHTML = ""
-        for step in steps:
-            item = document.createElement("li")
-            item.textContent = step
-            target.appendChild(item)
+    workflow = "Encrypt" if event.target.id == "tlsRunEncrypt" else "Decrypt"
+    target = document.querySelector("#tlsSteps" + workflow)
+    progress = document.querySelector("#tlsProgress" + workflow)
+    next_button = document.querySelector("#tlsNext" + workflow)
+    run_button = event.target
+    target.innerHTML = ""
+    for index, step in enumerate(steps):
+        item = document.createElement("li")
+        item.textContent = step
+        item.hidden = index != 0
+        target.appendChild(item)
+    target.dataset.current = "0"
+    progress.textContent = "Etapa 1 de " + str(len(steps))
+    next_button.dataset.current = "0"
+    next_button.hidden = len(steps) < 2
+    next_button.disabled = False
+    next_button.innerHTML = 'Próxima etapa <i class="bi bi-arrow-right" aria-hidden="true"></i>'
+    run_button.innerText = "Reiniciar handshake"
         
 # o número para o qual queremos encontrar o inverso modular e m é o módulo.
 

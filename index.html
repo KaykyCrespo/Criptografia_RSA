@@ -392,8 +392,10 @@
                 <section class="tls-simulation" id="tlsSimulationEncrypt" hidden>
                     <h3>Handshake TLS didático</h3>
                     <p>Etapas conceituais do início de uma conexão. Esta simulação não envia dados nem aplica criptografia.</p>
-                    <button class="btn tls-run" type="button" py-click="simular_tls"><i class="bi bi-play-fill" aria-hidden="true"></i> Executar simulação</button>
+                    <button id="tlsRunEncrypt" class="btn tls-run" type="button" py-click="simular_tls"><i class="bi bi-play-fill" aria-hidden="true"></i> Iniciar handshake</button>
+                    <p class="tls-progress" id="tlsProgressEncrypt" role="status" aria-live="polite"></p>
                     <ol class="tls-steps" id="tlsStepsEncrypt"></ol>
+                    <button id="tlsNextEncrypt" class="tls-next" type="button" onclick="avancarTls('encrypt')" hidden>Próxima etapa <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
                 </section>
                 <label class="field-label" for="texto-primary">Mensagem</label>
                 <form class="form">
@@ -476,8 +478,10 @@
                 <section class="tls-simulation" id="tlsSimulationDecrypt" hidden>
                     <h3>Handshake TLS didático</h3>
                     <p>Etapas conceituais do início de uma conexão. Esta simulação não envia dados nem aplica criptografia.</p>
-                    <button class="btn tls-run" type="button" py-click="simular_tls"><i class="bi bi-play-fill" aria-hidden="true"></i> Executar simulação</button>
+                    <button id="tlsRunDecrypt" class="btn tls-run" type="button" py-click="simular_tls"><i class="bi bi-play-fill" aria-hidden="true"></i> Iniciar handshake</button>
+                    <p class="tls-progress" id="tlsProgressDecrypt" role="status" aria-live="polite"></p>
                     <ol class="tls-steps" id="tlsStepsDecrypt"></ol>
+                    <button id="tlsNextDecrypt" class="tls-next" type="button" onclick="avancarTls('decrypt')" hidden>Próxima etapa <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
                 </section>
                 <label class="field-label" for="msgCriptografada-second">Texto cifrado</label>
                 <form class="form">
@@ -513,9 +517,9 @@
         </div><!--second content-->
     </main>
     <footer id="copyrightAll">Kayky Crespo dos Santos</footer>
-    <script src="app.js?v=8"></script>
+    <script src="app.js?v=9"></script>
     <script type="py" src="cipher_methods.py?v=4"></script>
-    <script type="py" src="rsa_web.py?v=5"></script>
+    <script type="py" src="rsa_web.py?v=6"></script>
 </body>
 
 </html>

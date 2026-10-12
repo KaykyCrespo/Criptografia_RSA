@@ -13,7 +13,7 @@ Explorar conceitos de criptografia assimétrica, geração de chaves e transform
 - Criptografia e descriptografia RSA didáticas.
 - Cifras simétricas implementadas em Python puro, sem bibliotecas externas: DES, Twofish-128 e SAFER K-64.
 - DES, Twofish e SAFER usam CBC com padding PKCS#7, chave e IV aleatórios; chave e IV são exibidos em hexadecimal para permitir a transferência entre os painéis.
-- Simulação textual das etapas conceituais de um handshake TLS. Ela não cria certificados, segredos, conexão ou tráfego TLS real, e não cifra mensagens.
+- Simulação guiada, etapa por etapa, das fases conceituais de um handshake TLS. Ela não cria certificados, segredos, conexão ou tráfego TLS real, e não cifra mensagens.
 - Transferência dos dados entre os campos, validação de entradas e controles para revelar os resultados.
 - Em telas estreitas, alternância animada entre criptografia e descriptografia para evitar painéis empilhados.
 
@@ -73,7 +73,7 @@ Abra <http://localhost:8000/index.html>. Para encerrar o servidor, pressione `Ct
 2. Clique em **Criptografar**. Para DES, Twofish e SAFER, a chave e o IV são mostrados em hexadecimal.
 3. Use o botão de transferência para preencher a área de descriptografia com o texto cifrado, a chave e o IV.
 4. Selecione o mesmo método na segunda área e clique em **Descriptografar**.
-5. Para TLS, selecione essa opção e execute a simulação do handshake. Essa ação apenas apresenta etapas conceituais.
+5. Para TLS, selecione essa opção, inicie o handshake didático e avance as etapas. Essa ação apenas apresenta conceitos; não estabelece conexão TLS.
 
 Não utilize dados confidenciais nos exemplos nem publique capturas contendo chaves ou mensagens reais.
 
