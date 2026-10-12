@@ -8,6 +8,10 @@ Explorar conceitos de criptografia assimétrica, geração de chaves e transform
 
 **Uso educacional:** esta implementação não deve ser utilizada para proteger informações reais, senhas ou dados pessoais. Não equivale a uma biblioteca criptográfica segura para produção.
 
+## Interface
+
+![Tela inicial do Laboratório RSA](assets/laboratorio-rsa.png)
+
 ## Funcionalidades
 
 - Criptografia e descriptografia RSA didáticas.
@@ -33,7 +37,7 @@ O RSA e as cifras são demonstrações educacionais, não implementações para 
 | --- | --- |
 | [index.html](index.html) | Página principal e carregamento dos recursos. |
 | [styles.css](styles.css) | Estilos responsivos da interface. |
-| [app.js](app.js) | Interações da interface e avisos dos métodos ainda indisponíveis. |
+| [app.js](app.js) | Alternância entre painéis, seleção de algoritmos, ajuda e navegação do fluxo TLS. |
 | [rsa_web.py](rsa_web.py) | Lógica Python integrada ao navegador via PyScript. |
 | [cipher_methods.py](cipher_methods.py) | DES, Twofish-128 e SAFER K-64, CBC/PKCS#7 e sequência descritiva da simulação TLS. |
 | [test_cipher_methods.py](test_cipher_methods.py) | Vetores conhecidos e testes de ida e volta das cifras simétricas. |
@@ -98,7 +102,6 @@ Os testes incluem vetores conhecidos de DES, Twofish-128 e SAFER K-64 e verifica
 - A opção TLS é apenas uma simulação de passos conceituais, não uma implementação do protocolo.
 - O teste no navegador confirmou a ida e volta dos quatro métodos de cifra para uma mensagem UTF-8 fictícia; isso não certifica segurança.
 - `rsa_terminal_demo.py` contém uma rotina de descriptografia que tenta chamar `.append()` no resultado convertido para `bytes`; o script de terminal pode falhar ao concluir a saída.
-- Capturas de tela foram omitidas porque os arquivos de imagem originais não estão no repositório.
 
 ## Autoria
 
