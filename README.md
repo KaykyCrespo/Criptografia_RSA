@@ -69,13 +69,13 @@ Abra <http://localhost:8000/APS.html>. Para encerrar o servidor, pressione `Ctrl
 2. Digite uma mensagem fictícia, como `Mensagem de exemplo`, e clique em **ENCRIPTOGRAFAR**.
 3. Confira a mensagem criptografada e os valores de chaves apresentados.
 4. Use o controle de transferência de dados para preencher a área de descriptografia.
-5. Clique em **ir**, selecione RSA na área de descriptografia e acione **descriptografar** para comparar o resultado com a mensagem original. O teste local com `Mensagem de exemplo` completou esse fluxo.
+5. Na área **Descriptografar**, mantenha RSA selecionado e acione **Descriptografar** para comparar o resultado com a mensagem original. O botão de transferência preenche os campos automaticamente.
 
 Não utilize dados confidenciais nos exemplos nem publique capturas contendo chaves ou mensagens reais.
 
 ## Limitações e pendências
 
-- A pasta `imagens/` não está presente nesta versão do repositório, apesar das referências em `APS.html` e `script.js`. Favicon, imagens do tutorial, ícones de envelope e alguns ícones informativos retornam 404; a interface e o fluxo RSA ainda carregam, mas a apresentação visual fica incompleta.
+- A pasta `imagens/` não está presente nesta versão. A interface principal não depende mais dessas imagens; `script.js` ainda contém funções do tutorial antigo que mencionam arquivos desse diretório, mas elas não são chamadas pela página atual.
 - O projeto depende de uma versão antiga de pré-lançamento do PyScript (`2023.09.1.RC1`), carregada de um endereço externo. A disponibilidade e a compatibilidade precisam ser verificadas antes de uma apresentação.
 - A rotina usa RSA elementar, sem padding, primos pequenos e `random`. Além de não oferecer segurança, a chave exibida como pública é `(n, p)` em vez do par RSA `(n, e)`.
 - A seleção aleatória de primos pode acessar um índice fora dos limites da lista; também não garante primos distintos nem um módulo maior que todos os bytes da mensagem. Por isso, o fluxo demonstrado pode falhar em outras execuções ou mensagens.
