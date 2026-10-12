@@ -2098,3 +2098,97 @@ button:focus-visible,
         transition-duration: 0.01ms !important;
     }
 }
+
+.workflow-switch {
+    display: none;
+}
+
+@media (max-width: 860px) {
+    .workflow-switch {
+        position: sticky;
+        top: 0;
+        z-index: 18;
+        width: min(720px, calc(100% - 48px));
+        margin: 0 auto 14px;
+        padding: 5px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 5px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        background: rgba(237, 243, 240, 0.96);
+        backdrop-filter: blur(10px);
+    }
+
+    .workflow-tab {
+        min-width: 0;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .workflow-tab .bi {
+        color: currentColor;
+    }
+
+    .workflow-tab.is-active {
+        border-color: #c5dcd3;
+        background: var(--paper);
+        box-shadow: 0 2px 7px rgba(24, 51, 50, 0.08);
+        color: var(--teal-dark);
+    }
+
+    .workflow-tab:focus-visible {
+        outline: 3px solid rgba(20, 119, 108, 0.25);
+        outline-offset: 2px;
+    }
+
+    #container {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #container .first-content .second-column,
+    #container .second-content .second-column {
+        display: none;
+        animation: none;
+    }
+
+    body[data-workflow="encrypt"] #container .first-content .second-column,
+    body[data-workflow="decrypt"] #container .second-content .second-column {
+        display: flex;
+        animation: workflow-arrive 220ms ease-out both;
+    }
+}
+
+@keyframes workflow-arrive {
+    from {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 520px) {
+    .workflow-switch {
+        width: calc(100% - 28px);
+    }
+
+    .workflow-tab {
+        font-size: 12px;
+    }
+}

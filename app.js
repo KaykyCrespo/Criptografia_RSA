@@ -60,6 +60,24 @@ document.querySelectorAll('input[name="criptografia"], input[name="criptografia2
     });
 });
 
+document.querySelectorAll(".workflow-tab").forEach(function(tab) {
+    tab.addEventListener("click", function() {
+        var workflow = tab.dataset.workflowTarget;
+        var panel = document.querySelector(workflow === "encrypt" ? "#cryptoPanel" : "#decryptPanel");
+
+        document.body.dataset.workflow = workflow;
+        document.querySelectorAll(".workflow-tab").forEach(function(workflowTab) {
+            var selected = workflowTab === tab;
+            workflowTab.classList.toggle("is-active", selected);
+            workflowTab.setAttribute("aria-pressed", selected ? "true" : "false");
+        });
+
+        if (window.matchMedia("(max-width: 860px)").matches) {
+            window.scrollTo({top: 0, behavior: "smooth"});
+        }
+    });
+});
+
 
 function mostrarSenhaPrimary(){
     var inputPassPrimary = document.getElementById('msgCriptografada-primary')

@@ -15,6 +15,7 @@ Explorar conceitos de criptografia assimétrica, geração de chaves e transform
 - DES, Twofish e SAFER usam CBC com padding PKCS#7, chave e IV aleatórios; chave e IV são exibidos em hexadecimal para permitir a transferência entre os painéis.
 - Simulação textual das etapas conceituais de um handshake TLS. Ela não cria certificados, segredos, conexão ou tráfego TLS real, e não cifra mensagens.
 - Transferência dos dados entre os campos, validação de entradas e controles para revelar os resultados.
+- Em telas estreitas, alternância animada entre criptografia e descriptografia para evitar painéis empilhados.
 
 O RSA e as cifras são demonstrações educacionais, não implementações para proteger dados reais.
 

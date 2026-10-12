@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="styles.css?v=6">
+    <link rel="stylesheet" href="styles.css?v=7">
     <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC1/core.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
@@ -14,7 +14,7 @@
 </head>
 
 <!--pop-up / botão I(INÍCIO)-->
-<body>
+<body data-workflow="encrypt">
     <div id="popup" class="popup">
         <label class="infoEsquerda" for="btnInformacoes">
             <input type="password" name="" id="informacoesEsquerdaFront" class="info-input" placeholder="" readonly>
@@ -314,6 +314,15 @@
         </div>
     </header>
 
+    <nav class="workflow-switch" aria-label="Área de trabalho">
+        <button class="workflow-tab is-active" id="workflowEncryptButton" type="button" data-workflow-target="encrypt" aria-controls="cryptoPanel" aria-pressed="true">
+            <i class="bi bi-lock-fill" aria-hidden="true"></i><span>Criptografar</span>
+        </button>
+        <button class="workflow-tab" id="workflowDecryptButton" type="button" data-workflow-target="decrypt" aria-controls="decryptPanel" aria-pressed="false">
+            <i class="bi bi-unlock-fill" aria-hidden="true"></i><span>Descriptografar</span>
+        </button>
+    </nav>
+
     <dialog class="help-dialog" id="helpDialog" aria-labelledby="helpTitle">
         <div class="help-dialog-header">
             <div>
@@ -340,7 +349,7 @@
     </dialog>
 
     <main id="container" aria-label="Ferramentas de criptografia RSA">
-        <div class="content first-content">
+        <div class="content first-content" id="cryptoPanel">
             <div class="first-column">
                 <label class="infoEsquerda" for="btnInformacoes">
                     <input type="password" name="" id="informacoesEsquerda" class="info-input" placeholder="" readonly>
@@ -424,7 +433,7 @@
                 </form>
             </div><!--second column-->
         </div><!--first content-->
-        <div class="content second-content">
+        <div class="content second-content" id="decryptPanel">
             <div class="first-column">
                 <label class="infoDireita" for="btnInformacoesEsquerda">
                     <input type="password" name="" id="informacoesDireita" class="info-input" placeholder="" readonly>
@@ -504,7 +513,7 @@
         </div><!--second content-->
     </main>
     <footer id="copyrightAll">Kayky Crespo dos Santos</footer>
-    <script src="app.js?v=7"></script>
+    <script src="app.js?v=8"></script>
     <script type="py" src="cipher_methods.py?v=4"></script>
     <script type="py" src="rsa_web.py?v=5"></script>
 </body>
