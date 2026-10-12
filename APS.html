@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="aps-css.css?v=2">
+    <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC1/core.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <title>APS | Criptografia - Work Security</title>
+</head>
+
+<!--pop-up / botão I(INÍCIO)-->
+<body>
+    <div id="popup" class="popup">
+        <label class="infoEsquerda" for="btnInformacoes">
+            <input type="password" name="" id="informacoesEsquerdaFront" class="info-input" placeholder="" readonly>
+            <div id="contornoInfoEsquerda" onclick="fecharDireita()">
+                <svg xmlns="http://www.w3.org/2000/svg" rect id="myRectAfter" width="24" height="24" fill="white"
+                    class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path
+                        d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                </svg>
+        </label>
+    </div>
+    <div>
+        <p id="infoTextoEsquerda">Instruções</p>
+    </div>
+<!--pop-up / botão I(TÉRMINO)-->
+
+    <!--conteudo 1-->
+    <div id="conteudoInfo1">
+        <input type="password" name="" id="informacoesEsquerdaBackVoltar" class="info-input" placeholder="" readonly>
+        <div id="cortornoVoltarDireita" onclick="proximaPagina1()" onmouseenter="mudarCorBotaoPaginaProxima1()"
+            onmouseleave="mudarCorBotaoPaginaProxima1()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltar" width="25" height="25" fill="white"
+                class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
+        </div>
+        <p id="topicosInfo1">1. Selecione o método de criptografia. Por enquanto, somente RSA está disponível, as outras
+            estão em desenvolvimento.</p>
+        <div id="pagina1">1/10</div>
+    </div>
+
+    <!--conteudo 2-->
+    <div id="conteudoInfo2">
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltarPaginaAnterior2" class="info-input"
+            placeholder="" readonly>
+        <div id="cortornoVoltarEsquerda" onclick="paginaAnterior2()" onmouseenter="mudarCorBotaoPaginaAnterior2()"
+            onmouseleave="mudarCorBotaoPaginaAnterior2()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltarPaginaAnterior2" width="25" height="25" fill="white"
+                class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
+        </div>
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltar2" class="info-input" placeholder="" readonly>
+        <div id="cortornoVoltarDireita" onclick="proximaPagina2()" onmouseenter="mudarCorBotaoPaginaProxima2()"
+            onmouseleave="mudarCorBotaoPaginaProxima2()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltar2" width="25" height="25" fill="white"
+                class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
+        </div>
+        <p id="topicosInfo2">2. Digite a mensagem que você deseja criptografar e clique em "ENCRIPTOGRAFAR”.</p>
+        <div id="pagina2">2/10</div>
+    </div>
+
+    <!--conteudo 3-->
+    <div id="conteudoInfo3">
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltarPaginaAnterior3" class="info-input"
+            placeholder="" readonly>
+        <div id="cortornoVoltarEsquerda" onclick="paginaAnterior3()" onmouseenter="mudarCorBotaoPaginaAnterior3()"
+            onmouseleave="mudarCorBotaoPaginaAnterior3()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltarPaginaAnterior3" width="25" height="25" fill="white"
+                class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
+        </div>
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltar3" class="info-input" placeholder="" readonly>
+        <div id="cortornoVoltarDireita" onclick="proximaPagina3()" onmouseenter="mudarCorBotaoPaginaProxima3()"
+            onmouseleave="mudarCorBotaoPaginaProxima3()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltar3" width="25" height="25" fill="white"
+                class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
+        </div>
+        <p id="topicosInfo3">3. Após criptografar, o sistema irá gerar uma chave privada e uma chave pública, juntamente
+            com a mensagem criptografada.</p>
+        <div id="pagina3">3/10</div>
+    </div>
+
+    <!--conteudo 4-->
+    <div id="conteudoInfo4">
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltarPaginaAnterior4" class="info-input"
+            placeholder="" readonly>
+        <div id="cortornoVoltarEsquerda" onclick="paginaAnterior4()" onmouseenter="mudarCorBotaoPaginaAnterior4()"
+            onmouseleave="mudarCorBotaoPaginaAnterior4()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltarPaginaAnterior4" width="25" height="25" fill="white"
+                class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
+        </div>
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltar4" class="info-input" placeholder="" readonly>
+        <div id="cortornoVoltarDireita" onclick="proximaPagina4()" onmouseenter="mudarCorBotaoPaginaProxima4()"
+            onmouseleave="mudarCorBotaoPaginaProxima4()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltar4" width="25" height="25" fill="white"
+                class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
+        </div>
+
+        <p id="topicosInfo4">4. Você pode clicar no ícone do “olho” para ocultar ou exibir a mensagem, caso seja
+            confidencial.</p>
+        <div id="pagina4">4/10</div>
+    </div>
+
+    <!--conteudo 5-->
+    <div id="conteudoInfo5">
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltarPaginaAnterior5" class="info-input"
+            placeholder="" readonly>
+        <div id="cortornoVoltarEsquerda" onclick="paginaAnterior5()" onmouseenter="mudarCorBotaoPaginaAnterior5()"
+            onmouseleave="mudarCorBotaoPaginaAnterior5()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltarPaginaAnterior5" width="25" height="25" fill="white"
+                class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
+        </div>
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltar5" class="info-input" placeholder="" readonly>
+        <div id="cortornoVoltarDireita" onclick="proximaPagina5()" onmouseenter="mudarCorBotaoPaginaProxima5()"
+            onmouseleave="mudarCorBotaoPaginaProxima5()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltar5" width="25" height="25" fill="white"
+                class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
+        </div>
+
+        <p id="topicosInfo5">5. Use o botão de transferência para transferir os dados para o outro lado sem a necessidade de copiar
+            e colar.</p>
+        <div id="pagina5">5/10</div>
+    </div>
+
+    <!--conteudo 6-->
+    <div id="conteudoInfo6">
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltarPaginaAnterior6" class="info-input"
+            placeholder="" readonly>
+        <div id="cortornoVoltarEsquerda" onclick="paginaAnterior6()" onmouseenter="mudarCorBotaoPaginaAnterior6()"
+            onmouseleave="mudarCorBotaoPaginaAnterior6()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltarPaginaAnterior6" width="25" height="25" fill="white"
+                class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
+        </div>
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltar6" class="info-input" placeholder="" readonly>
+        <div id="cortornoVoltarDireita" onclick="proximaPagina6()" onmouseenter="mudarCorBotaoPaginaProxima6()"
+            onmouseleave="mudarCorBotaoPaginaProxima6()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltar6" width="25" height="25" fill="white"
+                class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
+        </div>
+
+        <p id="topicosInfo6">6. Clique em "IR” para prosseguir para a parte de descriptografia.
+        </p>
+        <div id="pagina6">6/10</div>
+    </div>
+
+    <!--conteudo 7-->
+    <div id="conteudoInfo7">
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltarPaginaAnterior7" class="info-input"
+            placeholder="" readonly>
+        <div id="cortornoVoltarEsquerda" onclick="paginaAnterior7()" onmouseenter="mudarCorBotaoPaginaAnterior7()"
+            onmouseleave="mudarCorBotaoPaginaAnterior7()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltarPaginaAnterior7" width="25" height="25" fill="white"
+                class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
+        </div>
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltar7" class="info-input" placeholder="" readonly>
+        <div id="cortornoVoltarDireita" onclick="proximaPagina7()" onmouseenter="mudarCorBotaoPaginaProxima7()"
+            onmouseleave="mudarCorBotaoPaginaProxima7()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltar7" width="25" height="25" fill="white"
+                class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
+        </div>
+
+        <p id="topicosInfo7">7. Selecione novamente o método de criptografia, sendo que somente RSA está disponível.
+        </p>
+        <div id="pagina7">7/10</div>
+    </div>
+
+    <!--conteudo 8-->
+    <div id="conteudoInfo8">
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltarPaginaAnterior8" class="info-input"
+            placeholder="" readonly>
+        <div id="cortornoVoltarEsquerda" onclick="paginaAnterior8()" onmouseenter="mudarCorBotaoPaginaAnterior8()"
+            onmouseleave="mudarCorBotaoPaginaAnterior8()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltarPaginaAnterior8" width="25" height="25" fill="white"
+                class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
+        </div>
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltar7" class="info-input" placeholder="" readonly>
+        <div id="cortornoVoltarDireita" onclick="proximaPagina8()" onmouseenter="mudarCorBotaoPaginaProxima8()"
+            onmouseleave="mudarCorBotaoPaginaProxima8()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltar8" width="25" height="25" fill="white"
+                class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
+        </div>
+
+        <p id="topicosInfo8">8. Insira tanto a chave privada quanto a chave pública, juntamente com a mensagem
+            criptografada.
+        </p>
+        <div id="pagina8">8/10</div>
+    </div>
+
+    <!--conteudo 9-->
+    <div id="conteudoInfo9">
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltarPaginaAnterior9" class="info-input"
+            placeholder="" readonly>
+        <div id="cortornoVoltarEsquerda" onclick="paginaAnterior9()" onmouseenter="mudarCorBotaoPaginaAnterior9()"
+            onmouseleave="mudarCorBotaoPaginaAnterior9()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltarPaginaAnterior9" width="25" height="25" fill="white"
+                class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
+        </div>
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltar9" class="info-input" placeholder="" readonly>
+        <div id="cortornoVoltarDireita" onclick="proximaPagina9()" onmouseenter="mudarCorBotaoPaginaProxima9()"
+            onmouseleave="mudarCorBotaoPaginaProxima9()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltar9" width="25" height="25" fill="white"
+                class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
+        </div>
+        <p id="topicosInfo9">9. Clique em "DESCRIPTOGRAFAR” para revelar a mensagem original.
+        </p>
+        <div id="pagina9">9/10</div>
+    </div>
+
+    <!--conteudo 10-->
+    <div id="conteudoInfo10">
+
+        <input type="password" name="" id="informacoesEsquerdaBackVoltarPaginaAnterior10" class="info-input"
+            placeholder="" readonly>
+        <div id="cortornoVoltarEsquerda" onclick="paginaAnterior10()" onmouseenter="mudarCorBotaoPaginaAnterior10()"
+            onmouseleave="mudarCorBotaoPaginaAnterior10()">
+            <svg xmlns="http://www.w3.org/2000/svg" id="botaoVoltarPaginaAnterior10" width="25" height="25" fill="white"
+                class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
+        </div>
+
+        <p id="topicosInfo10">10. Clique em “VOLTAR” para retornar para a parte de criptografia.
+        </p>
+        <div id="pagina10">10/10</div>
+    </div>
+
+    </div>
+
+    <header class="app-header">
+        <div class="brand-lockup">
+            <span class="brand-mark" aria-hidden="true"><i class="bi bi-shield-lock-fill"></i></span>
+            <div>
+                <p class="eyebrow">CRIPTOGRAFIA APLICADA</p>
+                <h1>Laboratório RSA</h1>
+            </div>
+        </div>
+        <p class="security-note"><i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i> Demonstração acadêmica. Não use para proteger dados reais.</p>
+    </header>
+
+    <main id="container" aria-label="Ferramentas de criptografia RSA">
+        <div class="content first-content">
+            <div class="first-column">
+                <label class="infoEsquerda" for="btnInformacoes">
+                    <input type="password" name="" id="informacoesEsquerda" class="info-input" placeholder="" readonly>
+                    <div id="contornoInfoEsquerda" onclick="abrirDireita()">
+                        <svg xmlns="http://www.w3.org/2000/svg" rect id="myRect" width="24" height="24" fill="white"
+                            class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                        </svg>
+                    </div>
+                </label>
+                <h1 class="title title-primary">Descriptografar</h1>
+                <p class="description description-primary">Abra a área de descriptografia</p>
+                <button id="entrar" class="btn btn-primary">ir</button>
+                <p id="copyrightEsquerda">&copy Work Security</p>
+            </div><!--first column-->
+            <div class="second-column">
+                <div class="panel-heading">
+                    <span class="step-number">01</span>
+                    <div>
+                        <h2 class="title title-second">Criptografar</h2>
+                        <p class="panel-subtitle">Gere um par de chaves e cifre uma mensagem.</p>
+                    </div>
+                </div>
+                <p class="description description-criptografia">Método</p>
+                <div class="input-container">
+                    <input type="radio" id="rsa" name="criptografia" value="RSA" checked /><label class="criptografia"
+                        for="rsa">RSA</label>
+                    <input type="radio" id="twofish" name="criptografia" value="TWOFISH" disabled /><label class="criptografia"
+                        for="twofish">TWOFISH</label>
+                    <input type="radio" id="des" name="criptografia" value="DES" disabled /><label class="criptografia"
+                        for="des">DES</label>
+                    <input type="radio" id="tls" name="criptografia" value="TLS" disabled /><label class="criptografia"
+                        for="tls">TLS</label>
+                    <input type="radio" id="safer" name="criptografia" value="SAFER" disabled /><label class="criptografia"
+                        for="safer">SAFER</label>
+                </div>
+                <label class="field-label" for="texto-primary">Mensagem</label>
+                <form class="form">
+                    <label class="label-input" for="texto-primary">
+                        <i class="bi bi-pencil-square" aria-hidden="true"></i>
+                        <input type="text" name="" id="texto-primary" placeholder="Escreva uma mensagem de teste"
+                            autocomplete="off">
+                    </label>
+                    <label class="field-label" for="msgCriptografada-primary">Texto cifrado</label>
+                    <label class="label-input" for="msgCriptografada-primary">
+                        <i class="bi bi-braces" aria-hidden="true"></i>
+                        <input type="password" name="msgCriptografada-primary" id="msgCriptografada-primary"
+                            placeholder="O resultado aparecerá aqui" value="" readonly>
+                        <button class="visibility-toggle" type="button" aria-label="Mostrar ou ocultar texto cifrado" title="Mostrar ou ocultar texto cifrado" onclick="mostrarSenhaPrimary()"><i class="bi bi-eye-fill" id="btn-msgCriptografada-primary" aria-hidden="true"></i></button>
+                    </label>
+                    <div id="chaves">
+                        <label for="chave-privada" class="label-input">
+                            <i class="bi bi-key"></i>
+                            <input type="text" name="msgCriptografada-primary" id="chave-privada1" placeholder="Chave privada"
+                                value="" autocomplete="off" readonly>
+                        </label>
+                        <label for="chave-publica" class="label-input">
+                            <i class="bi bi-key-fill"></i>
+                            <input type="text" name="msgCriptografada-primary" id="chave-publica1" placeholder="Chave pública"
+                                value="" autocomplete="off" readonly>
+                        </label>
+                    </div>
+                    <div id="chavesVisivel">
+                        <p id="chavePrivadaVisivel">Chave privada</p>
+                        <p id="chavePublicaVisivel">Chave pública</p>
+                    </div>
+                    <div class="action-row">
+                        <button class="btn btn-second" py-click="criptografar" type="button"><i class="bi bi-lock-fill" aria-hidden="true"></i> Criptografar</button>
+                        <button py-click="exportadados" class="transfer-button" type="button" id="exportaDados" aria-label="Transferir mensagem e chaves para descriptografia" title="Transferir para descriptografia"><i class="bi bi-arrow-down-right" aria-hidden="true"></i></button>
+                    </div>
+                    <p id="aviso" role="status" aria-live="polite">AVISO</p>
+                </form>
+            </div><!--second column-->
+        </div><!--first content-->
+        <div class="content second-content">
+            <div class="first-column">
+                <label class="infoDireita" for="btnInformacoesEsquerda">
+                    <input type="password" name="" id="informacoesDireita" class="info-input" placeholder="" readonly>
+                    <div id="contornoInfoDireita" onclick="abrirEsquerda()">
+                        <svg xmlns="http://www.w3.org/2000/svg" rect id="myRect" width="24" height="24" fill="white"
+                            class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                        </svg>
+                    </div>
+                </label>
+                <h1 class="title title-primary">Criptografar</h1>
+                <p class="description description-primary">Gere uma mensagem RSA</p>
+                <button id="sair" class="btn btn-primary">voltar</button>
+                <p id="copyrightDireita">&copy Work Security</p>
+            </div><!--first column-->
+            <div class="second-column">
+                <div class="panel-heading">
+                    <span class="step-number step-number-coral">02</span>
+                    <div>
+                        <h2 class="title title-second">Descriptografar</h2>
+                        <p class="panel-subtitle">Recupere a mensagem usando a chave privada.</p>
+                    </div>
+                </div>
+                <p class="description description-criptografia">Método</p>
+                <div class="input-container">
+                    <input type="radio" id="rsa2" name="criptografia2" value="RSA" checked /><label class="criptografia"
+                        for="rsa2">RSA</label>
+                    <input type="radio" id="twofish2" name="criptografia2" value="TWOFISH" disabled /><label class="criptografia"
+                        for="twofish2">TWOFISH</label>
+                    <input type="radio" id="des2" name="criptografia2" value="DES" disabled /><label class="criptografia"
+                        for="des2">DES</label>
+                    <input type="radio" id="tls2" name="criptografia2" value="TLS" disabled /><label class="criptografia"
+                        for="tls2">TLS</label>
+                    <input type="radio" id="safer2" name="criptografia2" value="SAFER" disabled /><label class="criptografia"
+                        for="safer2">SAFER</label>
+                </div>
+                <label class="field-label" for="msgCriptografada-second">Texto cifrado</label>
+                <form class="form">
+                    <div id="chaves">
+                        <label for="chave-privada" class="label-input">
+                            <i class="bi bi-key"></i>
+                            <input type="text" name="msgCriptografada-primary" id="chave-privada2" placeholder="Chave privada"
+                                value="" autocomplete="off">
+                        </label>
+                        <label for="chave-publica" class="label-input">
+                            <i class="bi bi-key-fill"></i>
+                            <input type="text" name="msgCriptografada-primary" id="chave-publica2" placeholder="Chave pública"
+                                value="" autocomplete="off">
+                        </label>
+                    </div>
+                    <label class="label-input" for="msgCriptografada-second">
+                        <i class="bi bi-braces" aria-hidden="true"></i>
+                        <input type="text" name="" id="msgCriptografada-second" placeholder="Cole ou transfira o texto cifrado"
+                            autocomplete="off">
+                    </label>
+                    <label class="field-label" for="msgDescriptografada-second">Mensagem original</label>
+                    <label class="label-input" for="btn-msgDescriptografada-second">
+                        <i class="bi bi-chat-left-text" aria-hidden="true"></i>
+                        <input type="password" name="" id="msgDescriptografada-second" placeholder="Mensagem descriptografada"
+                            readonly>
+                        <button class="visibility-toggle" type="button" aria-label="Mostrar ou ocultar mensagem original" title="Mostrar ou ocultar mensagem original" onclick="mostrarSenhaSecond()"><i class="bi bi-eye-fill" id="btn-msgDescriptografada-second" aria-hidden="true"></i></button>
+                    </label>
+                    <button class="btn btn-decrypt" type="button" py-click="descriptografar"><i class="bi bi-unlock-fill" aria-hidden="true"></i> Descriptografar</button>
+                    <p id="aviso2" role="status" aria-live="polite">AVISO</p>
+
+                </form>
+            </div><!--second column-->
+        </div><!--second content-->
+    </main>
+    <footer id="copyrightAll">Autores creditados no projeto: Kayky Crespo, Caio Pacheco, Lucas Jesus, Guilherme Nobre e Gabriel Cipriano.</footer>
+    <script src="script.js"></script>
+    <script type="py" src="main.py"></script>
+</body>
+
+</html>
