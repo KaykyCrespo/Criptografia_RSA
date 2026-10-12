@@ -24,17 +24,17 @@ Os outros métodos exibidos na interface estão indicados como em desenvolviment
 - **PyScript:** execução de Python e interação com a página no navegador.
 - **HTML e CSS:** estrutura e apresentação da interface.
 - **JavaScript:** interações da interface.
-- **Font Awesome, Bootstrap Icons e Google Fonts:** recursos visuais carregados externamente.
+- **Bootstrap Icons e Google Fonts:** ícones e fontes carregados externamente.
 
 ## Organização dos arquivos
 
 | Arquivo | Responsabilidade |
 | --- | --- |
-| [APS.html](APS.html) | Página principal e carregamento dos recursos. |
-| [aps-css.css](aps-css.css) | Estilos da interface. |
-| [script.js](script.js) | Interações da interface em JavaScript. |
-| [main.py](main.py) | Lógica Python integrada ao navegador via PyScript. |
-| [RSA.py](RSA.py) | Experimento independente de linha de comando, não carregado pela página. A rotina de saída tem um erro conhecido e não é recomendada como caminho de execução. |
+| [index.html](index.html) | Página principal e carregamento dos recursos. |
+| [styles.css](styles.css) | Estilos responsivos da interface. |
+| [app.js](app.js) | Interações da interface e avisos dos métodos ainda indisponíveis. |
+| [rsa_web.py](rsa_web.py) | Lógica Python integrada ao navegador via PyScript. |
+| [rsa_terminal_demo.py](rsa_terminal_demo.py) | Experimento independente de linha de comando, não carregado pela página. A rotina de saída tem um erro conhecido e não é recomendada como caminho de execução. |
 
 ## Como executar a interface
 
@@ -48,7 +48,7 @@ Os outros métodos exibidos na interface estão indicados como em desenvolviment
 
 1. Clone ou baixe o repositório e abra a pasta no VS Code.
 2. Instale a extensão Live Server, caso ainda não esteja disponível.
-3. Clique com o botão direito em `APS.html` e selecione **Open with Live Server**.
+3. Clique com o botão direito em `index.html` e selecione **Open with Live Server**.
 4. Aguarde o carregamento do PyScript no navegador. A versão usada pela página e os recursos visuais externos precisam de conexão com a internet.
 
 ### Alternativa com Python 3
@@ -59,9 +59,9 @@ Na pasta do projeto, execute:
 python -m http.server 8000 --bind 127.0.0.1
 ```
 
-Abra <http://localhost:8000/APS.html>. Para encerrar o servidor, pressione `Ctrl+C` no terminal.
+Abra <http://localhost:8000/index.html>. Para encerrar o servidor, pressione `Ctrl+C` no terminal.
 
-`main.py` depende do ambiente do navegador e não deve ser executado diretamente com `python main.py`.
+`rsa_web.py` depende do ambiente do navegador e não deve ser executado diretamente com `python rsa_web.py`.
 
 ## Exemplo de uso
 
@@ -75,17 +75,19 @@ Não utilize dados confidenciais nos exemplos nem publique capturas contendo cha
 
 ## Limitações e pendências
 
-- A pasta `imagens/` não está presente nesta versão. A interface principal não depende mais dessas imagens; `script.js` ainda contém funções do tutorial antigo que mencionam arquivos desse diretório, mas elas não são chamadas pela página atual.
+- A pasta `imagens/` não está presente nesta versão. A interface principal não depende dessas imagens; `app.js` ainda contém funções do tutorial antigo que mencionam arquivos desse diretório, mas elas não são chamadas pela página atual.
 - O projeto depende de uma versão antiga de pré-lançamento do PyScript (`2023.09.1.RC1`), carregada de um endereço externo. A disponibilidade e a compatibilidade precisam ser verificadas antes de uma apresentação.
 - A rotina usa RSA elementar, sem padding, primos pequenos e `random`. Além de não oferecer segurança, a chave exibida como pública é `(n, p)` em vez do par RSA `(n, e)`.
 - A seleção aleatória de primos pode acessar um índice fora dos limites da lista; também não garante primos distintos nem um módulo maior que todos os bytes da mensagem. Por isso, o fluxo demonstrado pode falhar em outras execuções ou mensagens.
 - O teste do navegador confirmou uma ida e volta com a mensagem de exemplo, mas não cobre essas combinações aleatórias nem certifica a implementação.
-- `RSA.py` contém uma rotina de descriptografia que tenta chamar `.append()` no resultado convertido para `bytes`; o script de terminal pode falhar ao concluir a saída.
+- `rsa_terminal_demo.py` contém uma rotina de descriptografia que tenta chamar `.append()` no resultado convertido para `bytes`; o script de terminal pode falhar ao concluir a saída.
 - Capturas de tela foram omitidas porque os arquivos de imagem originais não estão no repositório.
 
 ## Autoria
 
-Nomes creditados na interface e nos comentários do código original:
+Responsável por esta versão: **Kayky Crespo dos Santos**.
+
+Colaboradores creditados na versão acadêmica original:
 
 - Kayky Crespo
 - Caio Pacheco

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="aps-css.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=4">
     <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC1/core.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
@@ -330,7 +330,7 @@
             </div><!--first column-->
             <div class="second-column">
                 <div class="panel-heading">
-                    <span class="step-number">01</span>
+                    <span class="step-number" aria-label="Etapa 1"><i class="bi bi-lock-fill" aria-hidden="true"></i><span>01</span></span>
                     <div>
                         <h2 class="title title-second">Criptografar</h2>
                         <p class="panel-subtitle">Gere um par de chaves e cifre uma mensagem.</p>
@@ -340,15 +340,16 @@
                 <div class="input-container">
                     <input type="radio" id="rsa" name="criptografia" value="RSA" checked /><label class="criptografia"
                         for="rsa">RSA</label>
-                    <input type="radio" id="twofish" name="criptografia" value="TWOFISH" disabled /><label class="criptografia"
+                    <input type="radio" id="twofish" name="criptografia" value="TWOFISH" /><label class="criptografia"
                         for="twofish">TWOFISH</label>
-                    <input type="radio" id="des" name="criptografia" value="DES" disabled /><label class="criptografia"
+                    <input type="radio" id="des" name="criptografia" value="DES" /><label class="criptografia"
                         for="des">DES</label>
-                    <input type="radio" id="tls" name="criptografia" value="TLS" disabled /><label class="criptografia"
+                    <input type="radio" id="tls" name="criptografia" value="TLS" /><label class="criptografia"
                         for="tls">TLS</label>
-                    <input type="radio" id="safer" name="criptografia" value="SAFER" disabled /><label class="criptografia"
+                    <input type="radio" id="safer" name="criptografia" value="SAFER" /><label class="criptografia"
                         for="safer">SAFER</label>
                 </div>
+                <p class="method-notice" id="methodNoticeEncrypt" role="status" aria-live="polite" hidden></p>
                 <label class="field-label" for="texto-primary">Mensagem</label>
                 <form class="form">
                     <label class="label-input" for="texto-primary">
@@ -407,7 +408,7 @@
             </div><!--first column-->
             <div class="second-column">
                 <div class="panel-heading">
-                    <span class="step-number step-number-coral">02</span>
+                    <span class="step-number step-number-coral" aria-label="Etapa 2"><i class="bi bi-unlock-fill" aria-hidden="true"></i><span>02</span></span>
                     <div>
                         <h2 class="title title-second">Descriptografar</h2>
                         <p class="panel-subtitle">Recupere a mensagem usando a chave privada.</p>
@@ -417,15 +418,16 @@
                 <div class="input-container">
                     <input type="radio" id="rsa2" name="criptografia2" value="RSA" checked /><label class="criptografia"
                         for="rsa2">RSA</label>
-                    <input type="radio" id="twofish2" name="criptografia2" value="TWOFISH" disabled /><label class="criptografia"
+                    <input type="radio" id="twofish2" name="criptografia2" value="TWOFISH" /><label class="criptografia"
                         for="twofish2">TWOFISH</label>
-                    <input type="radio" id="des2" name="criptografia2" value="DES" disabled /><label class="criptografia"
+                    <input type="radio" id="des2" name="criptografia2" value="DES" /><label class="criptografia"
                         for="des2">DES</label>
-                    <input type="radio" id="tls2" name="criptografia2" value="TLS" disabled /><label class="criptografia"
+                    <input type="radio" id="tls2" name="criptografia2" value="TLS" /><label class="criptografia"
                         for="tls2">TLS</label>
-                    <input type="radio" id="safer2" name="criptografia2" value="SAFER" disabled /><label class="criptografia"
+                    <input type="radio" id="safer2" name="criptografia2" value="SAFER" /><label class="criptografia"
                         for="safer2">SAFER</label>
                 </div>
+                <p class="method-notice" id="methodNoticeDecrypt" role="status" aria-live="polite" hidden></p>
                 <label class="field-label" for="msgCriptografada-second">Texto cifrado</label>
                 <form class="form">
                     <div id="chaves">
@@ -459,9 +461,9 @@
             </div><!--second column-->
         </div><!--second content-->
     </main>
-    <footer id="copyrightAll">Autores creditados no projeto: Kayky Crespo, Caio Pacheco, Lucas Jesus, Guilherme Nobre e Gabriel Cipriano.</footer>
-    <script src="script.js"></script>
-    <script type="py" src="main.py"></script>
+    <footer id="copyrightAll">Kayky Crespo dos Santos</footer>
+    <script src="app.js?v=3"></script>
+    <script type="py" src="rsa_web.py"></script>
 </body>
 
 </html>

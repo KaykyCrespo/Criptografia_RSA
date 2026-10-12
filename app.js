@@ -11,6 +11,23 @@ btnSair.addEventListener("click", function() {
     body.className = "sair-js"
 });
 
+document.querySelectorAll('input[name="criptografia"], input[name="criptografia2"]').forEach(function(method) {
+    method.addEventListener("click", function() {
+        var notice = document.querySelector(method.name === "criptografia" ? "#methodNoticeEncrypt" : "#methodNoticeDecrypt");
+        var rsa = document.querySelector('input[name="' + method.name + '"][value="RSA"]');
+
+        if (method.value === "RSA") {
+            notice.hidden = true;
+            notice.textContent = "";
+            return;
+        }
+
+        notice.textContent = method.value + " ainda não foi desenvolvido. Somente RSA está disponível.";
+        notice.hidden = false;
+        rsa.checked = true;
+    });
+});
+
 
 function mostrarSenhaPrimary(){
     var inputPassPrimary = document.getElementById('msgCriptografada-primary')
