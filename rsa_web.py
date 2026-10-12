@@ -1,6 +1,14 @@
 from js import document
 import math
 import random
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from cipher_methods import (
+        build_tls_handshake_simulation,
+        decrypt_symmetric_message,
+        encrypt_symmetric_message,
+    )
 
 #---------------------CAIO PACHECO---------------------#
 
@@ -14,11 +22,58 @@ chave_publica = document.querySelector("#chave-publica1") #texto dos dígitos da
 def criptografar(event):
     opcaoMarcada = False
     inputRSA = document.querySelector("#rsa") #botão RSA
+    inputDES = document.querySelector("#des")
+    inputTWOFISH = document.querySelector("#twofish")
+    inputTLS = document.querySelector("#tls")
+    inputSAFER = document.querySelector("#safer")
     
     if (inputRSA.checked):
         opcaoMarcada = True
 
     mensagemTexto = document.querySelector("#texto-primary") # texto mensagem para encriptografar
+    symmetricMethod = None
+    if inputDES.checked:
+        symmetricMethod = "DES"
+    elif inputTWOFISH.checked:
+        symmetricMethod = "TWOFISH"
+    elif inputSAFER.checked:
+        symmetricMethod = "SAFER"
+
+    if symmetricMethod:
+        if mensagemTexto.value == "":
+            msgAviso.innerText = "ERRO! Digite a mensagem para encriptografar!"
+            msgAviso.style.display = "block"
+            msgAviso.style.color = "red"
+            criptografada.value = ""
+            chave_privada.value = ""
+            chave_publica.value = ""
+            return
+
+        try:
+            ciphertext, key, iv = encrypt_symmetric_message(symmetricMethod, mensagemTexto.value)
+        except ValueError as error:
+            msgAviso.innerText = "ERRO! " + str(error)
+            msgAviso.style.display = "block"
+            msgAviso.style.color = "red"
+            return
+
+        criptografada.value = ciphertext.hex()
+        chave_privada.value = key.hex()
+        chave_publica.value = iv.hex()
+        document.querySelector("#chavePrivadaVisivel").style.visibility = "visible"
+        document.querySelector("#chavePublicaVisivel").style.visibility = "visible"
+        msgAviso.innerText = "Mensagem cifrada com " + symmetricMethod + "-CBC. Copie também a chave e o IV para descriptografar."
+        msgAviso.style.display = "block"
+        msgAviso.style.color = "#7f8c8d"
+        msgAviso2.innerText = ""
+        return
+
+    if inputTLS.checked:
+        msgAviso.innerText = "TLS é um protocolo de conexão; use o controle de simulação do handshake."
+        msgAviso.style.display = "block"
+        msgAviso.style.color = "red"
+        return
+
     if mensagemTexto.value == "":
         msgAviso.innerText = "ERRO! Digite a mensagem para encriptografar!"
         msgAviso.style.display = "block"
@@ -168,6 +223,46 @@ def descriptografar(event):
     inputTLS = document.querySelector("#tls2")
     inputSAFER = document.querySelector("#safer2")
 
+    symmetricMethod = None
+    if inputDES.checked:
+        symmetricMethod = "DES"
+    elif inputTWOFISH.checked:
+        symmetricMethod = "TWOFISH"
+    elif inputSAFER.checked:
+        symmetricMethod = "SAFER"
+
+    if symmetricMethod:
+        if chave_privada.value == "" or chave_publica.value == "" or criptografada.value == "":
+            msgAviso2.innerText = "ERRO! Informe o texto cifrado, a chave e o IV de " + symmetricMethod + "."
+            msgAviso2.style.display = "block"
+            msgAviso2.style.color = "red"
+            mensagem.value = ""
+            return
+
+        try:
+            ciphertext = bytes.fromhex(criptografada.value.strip())
+            key = bytes.fromhex(chave_privada.value.strip())
+            iv = bytes.fromhex(chave_publica.value.strip())
+            mensagem.value = decrypt_symmetric_message(symmetricMethod, ciphertext, key, iv).decode("utf-8")
+        except (ValueError, UnicodeDecodeError) as error:
+            msgAviso2.innerText = "ERRO! Dados " + symmetricMethod + " inválidos: " + str(error)
+            msgAviso2.style.display = "block"
+            msgAviso2.style.color = "red"
+            mensagem.value = ""
+            return
+
+        msgAviso2.innerText = "Mensagem recuperada com " + symmetricMethod + "-CBC."
+        msgAviso2.style.display = "block"
+        msgAviso2.style.color = "#7f8c8d"
+        msgAviso.style.display = "none"
+        return
+
+    if inputTLS.checked:
+        msgAviso2.innerText = "TLS é um protocolo; use o controle para executar a simulação didática do handshake."
+        msgAviso2.style.display = "block"
+        msgAviso2.style.color = "#83521d"
+        return
+
 
     #USER FRIENDLY
     if (inputRSA.checked):
@@ -313,6 +408,17 @@ def modInverse(a, m):
     for x in range(1, m):
         if ((a % m) * (x % m)) % m == 1:
             return x
+
+
+def simular_tls(event):
+    steps = build_tls_handshake_simulation()
+    for target_id in ("#tlsStepsEncrypt", "#tlsStepsDecrypt"):
+        target = document.querySelector(target_id)
+        target.innerHTML = ""
+        for step in steps:
+            item = document.createElement("li")
+            item.textContent = step
+            target.appendChild(item)
         
 # o número para o qual queremos encontrar o inverso modular e m é o módulo.
 

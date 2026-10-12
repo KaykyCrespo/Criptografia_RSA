@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=6">
     <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC1/core.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
@@ -306,8 +306,38 @@
                 <h1>Laboratório RSA</h1>
             </div>
         </div>
-        <p class="security-note"><i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i> Demonstração acadêmica. Não use para proteger dados reais.</p>
+        <div class="header-actions">
+            <p class="security-note"><i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i> Demonstração acadêmica. Não use para proteger dados reais.</p>
+            <button id="helpButton" class="help-button" type="button" aria-label="Abrir explicações" title="Explicações">
+                <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
+            </button>
+        </div>
     </header>
+
+    <dialog class="help-dialog" id="helpDialog" aria-labelledby="helpTitle">
+        <div class="help-dialog-header">
+            <div>
+                <p class="eyebrow">GUIA RÁPIDO</p>
+                <h2 id="helpTitle">Como usar</h2>
+            </div>
+            <button class="help-close" type="button" aria-label="Fechar explicações" title="Fechar" onclick="document.querySelector('#helpDialog').close()">
+                <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+        </div>
+        <ol class="help-steps">
+            <li>Escolha um método disponível e escreva uma mensagem de teste.</li>
+            <li>Use <strong>Criptografar</strong> para gerar o texto cifrado e as chaves.</li>
+            <li>O botão de seta transfere os valores para a área de descriptografia.</li>
+            <li>Use <strong>Descriptografar</strong> para conferir a mensagem recuperada.</li>
+        </ol>
+        <div class="help-notes">
+            <p><strong>Disponibilidade:</strong> RSA, DES, Twofish-128 e SAFER K-64 cifram mensagens. TLS abre uma simulação didática de handshake.</p>
+            <p><strong>Chaves:</strong> DES e SAFER K-64 usam 8 bytes; Twofish-128 usa 16. Os métodos simétricos também usam um IV e CBC com padding PKCS#7.</p>
+            <p><strong>TLS:</strong> a simulação mostra etapas conceituais. Não cria certificados, não negocia segredos e não estabelece uma conexão TLS real.</p>
+            <p><strong>Segurança:</strong> as cifras foram escritas para estudo e não devem proteger dados reais. DES é obsoleto, e as implementações não incluem autenticação.</p>
+            <p><strong>Segurança:</strong> as implementações são educacionais e não devem proteger dados reais.</p>
+        </div>
+    </dialog>
 
     <main id="container" aria-label="Ferramentas de criptografia RSA">
         <div class="content first-content">
@@ -350,6 +380,12 @@
                         for="safer">SAFER</label>
                 </div>
                 <p class="method-notice" id="methodNoticeEncrypt" role="status" aria-live="polite" hidden></p>
+                <section class="tls-simulation" id="tlsSimulationEncrypt" hidden>
+                    <h3>Handshake TLS didático</h3>
+                    <p>Etapas conceituais do início de uma conexão. Esta simulação não envia dados nem aplica criptografia.</p>
+                    <button class="btn tls-run" type="button" py-click="simular_tls"><i class="bi bi-play-fill" aria-hidden="true"></i> Executar simulação</button>
+                    <ol class="tls-steps" id="tlsStepsEncrypt"></ol>
+                </section>
                 <label class="field-label" for="texto-primary">Mensagem</label>
                 <form class="form">
                     <label class="label-input" for="texto-primary">
@@ -367,12 +403,12 @@
                     <div id="chaves">
                         <label for="chave-privada" class="label-input">
                             <i class="bi bi-key"></i>
-                            <input type="text" name="msgCriptografada-primary" id="chave-privada1" placeholder="Chave privada"
+                            <input type="text" name="msgCriptografada-primary" id="chave-privada1" placeholder="Chave privada RSA"
                                 value="" autocomplete="off" readonly>
                         </label>
                         <label for="chave-publica" class="label-input">
                             <i class="bi bi-key-fill"></i>
-                            <input type="text" name="msgCriptografada-primary" id="chave-publica1" placeholder="Chave pública"
+                            <input type="text" name="msgCriptografada-primary" id="chave-publica1" placeholder="Chave pública RSA"
                                 value="" autocomplete="off" readonly>
                         </label>
                     </div>
@@ -428,6 +464,12 @@
                         for="safer2">SAFER</label>
                 </div>
                 <p class="method-notice" id="methodNoticeDecrypt" role="status" aria-live="polite" hidden></p>
+                <section class="tls-simulation" id="tlsSimulationDecrypt" hidden>
+                    <h3>Handshake TLS didático</h3>
+                    <p>Etapas conceituais do início de uma conexão. Esta simulação não envia dados nem aplica criptografia.</p>
+                    <button class="btn tls-run" type="button" py-click="simular_tls"><i class="bi bi-play-fill" aria-hidden="true"></i> Executar simulação</button>
+                    <ol class="tls-steps" id="tlsStepsDecrypt"></ol>
+                </section>
                 <label class="field-label" for="msgCriptografada-second">Texto cifrado</label>
                 <form class="form">
                     <div id="chaves">
@@ -462,8 +504,9 @@
         </div><!--second content-->
     </main>
     <footer id="copyrightAll">Kayky Crespo dos Santos</footer>
-    <script src="app.js?v=3"></script>
-    <script type="py" src="rsa_web.py"></script>
+    <script src="app.js?v=7"></script>
+    <script type="py" src="cipher_methods.py?v=4"></script>
+    <script type="py" src="rsa_web.py?v=5"></script>
 </body>
 
 </html>

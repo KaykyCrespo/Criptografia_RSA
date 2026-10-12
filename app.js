@@ -11,20 +11,52 @@ btnSair.addEventListener("click", function() {
     body.className = "sair-js"
 });
 
+var helpButton = document.querySelector("#helpButton");
+var helpDialog = document.querySelector("#helpDialog");
+
+helpButton.addEventListener("click", function() {
+    helpDialog.showModal();
+});
+
+helpDialog.addEventListener("click", function(event) {
+    if (event.target === helpDialog) {
+        helpDialog.close();
+    }
+});
+
 document.querySelectorAll('input[name="criptografia"], input[name="criptografia2"]').forEach(function(method) {
     method.addEventListener("click", function() {
         var notice = document.querySelector(method.name === "criptografia" ? "#methodNoticeEncrypt" : "#methodNoticeDecrypt");
-        var rsa = document.querySelector('input[name="' + method.name + '"][value="RSA"]');
+        var panel = method.closest(".second-column");
+        var tlsSimulation = document.querySelector(method.name === "criptografia" ? "#tlsSimulationEncrypt" : "#tlsSimulationDecrypt");
+        var privateKey = document.querySelector(method.name === "criptografia" ? "#chave-privada1" : "#chave-privada2");
+        var publicKey = document.querySelector(method.name === "criptografia" ? "#chave-publica1" : "#chave-publica2");
+        var fieldElements = panel.querySelectorAll(".field-label, .form");
 
-        if (method.value === "RSA") {
+        method.checked = true;
+        notice.hidden = true;
+        notice.textContent = "";
+        tlsSimulation.hidden = method.value !== "TLS";
+        fieldElements.forEach(function(element) {
+            element.hidden = method.value === "TLS";
+        });
+
+        if (method.value === "RSA" || method.value === "DES" || method.value === "TWOFISH" || method.value === "SAFER") {
+            var labels = {
+                RSA: ["Chave privada RSA", "Chave pública RSA"],
+                DES: ["Chave DES (8 bytes hex)", "IV DES (8 bytes hex)"],
+                TWOFISH: ["Chave Twofish (16 bytes hex)", "IV Twofish (16 bytes hex)"],
+                SAFER: ["Chave SAFER K-64 (8 bytes hex)", "IV SAFER (8 bytes hex)"]
+            };
             notice.hidden = true;
             notice.textContent = "";
+            privateKey.placeholder = labels[method.value][0];
+            publicKey.placeholder = labels[method.value][1];
             return;
         }
 
-        notice.textContent = method.value + " ainda não foi desenvolvido. Somente RSA está disponível.";
-        notice.hidden = false;
-        rsa.checked = true;
+        privateKey.placeholder = "Chave privada RSA";
+        publicKey.placeholder = "Chave pública RSA";
     });
 });
 
